@@ -13,7 +13,7 @@ You have to installed following software before use of this.
 2. npm install -g @angular/cli
 
 ## Watch ng commands video
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/fwCPaWge7oE/0.jpg)](https://www.youtube.com/watch?v=fwCPaWge7oE&autoplay=1)
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/fwCPaWge7oE/0.jpg)](https://www.youtube.com/watch?v=fwCPaWge7oE&autoplay=1)
 
 ## Release Notes
 
