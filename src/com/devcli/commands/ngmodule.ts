@@ -23,16 +23,28 @@ export class NgModule implements ICommand {
             if (v[0] === "1-ERROR-") return;
             vscode.window
               .showInputBox({
-                placeHolder: 'name of module (relative to "' + v[0] + '"'
+                placeHolder:
+                  "name of module" + (v[0]!=="" ? '( relative to "' + v[0] + '")' : "")
               })
               .then(data => {
                 if (data != undefined) {
-                  let terminal: vscode.Terminal = NgModule.utils.getTerminalForRootFolder(
-                    v[1]
-                  );
-                  let command = CMD_DEFAULT + v[0] + "/" + data;
-                  console.info("calling '" + command + "'");
-                  terminal.sendText(command);
+                  vscode.window
+                  .showQuickPick(["yes", "no"], {
+                    placeHolder: "add routing class?"
+                  })
+                  .then(choice => {
+                    let command =
+                    CMD_DEFAULT +
+                    (choice === "yes" ? "--routing " : "") +
+                    v[0] +
+                    "/" +
+                    data;
+                    let terminal: vscode.Terminal = NgModule.utils.getTerminalForRootFolder(
+                      v[1]
+                    );
+                    console.info("calling '" + command + "'");
+                      terminal.sendText(command);
+                    });
                 }
               });
           },
